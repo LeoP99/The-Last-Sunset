@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="HP" sid="963642290479931" static="0" type="number">2</variable>
+        <variable constant="0" name="origemX" sid="596579234868771" static="0" type="number">435</variable>
+        <variable constant="0" name="origemY" sid="498170236707438" static="0" type="number">222</variable>
+        <event-block sid="215545963581552">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="109187973058986" type="System">
+                    <param id="0" name="Interval (seconds)">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="194884934722358" type="System">
+                    <param id="0" name="Object to create">Obstaculo</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">origemX</param>
+                    <param id="3" name="Y">origemY</param>
+                </action>
+                <action id="-10" name="Set value" sid="132455296691676" type="Obstaculo">
+                    <param id="0" name="Instance variable">AnguloMovInicial</param>
+                    <param id="1" name="Value">random(70,110)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="100259834533116">
+                    <conditions />
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="991461040623965" type="Obstaculo">
+                            <param id="0" name="Angle">Obstaculo.AnguloMovInicial</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="709390320604803">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="199548649304166" type="Player">
+                    <param id="0" name="Object">Obstaculo</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="671661795928195" type="System">
+                    <param id="0" name="Variable">HP</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="923164352002352">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="962097124136460" type="System">
+                            <param id="0" name="Variable">HP</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
