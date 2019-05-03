@@ -3,12 +3,13 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="song" sid="124852165132867" static="0" type="number">0</variable>
+        <variable constant="0" name="start" sid="444762944467321" static="0" type="number">0</variable>
         <variable constant="0" name="Distancia" sid="602689024054855" static="0" type="number">1000</variable>
         <variable constant="0" name="velocidade" sid="438418698746117" static="0" type="number">200</variable>
         <variable constant="0" name="escalaInicial" sid="433734053815755" static="0" type="number">0.1</variable>
         <variable constant="0" name="escalaFinal" sid="649588926088122" static="0" type="number">1</variable>
         <variable constant="0" name="gameover" sid="719139342689165" static="0" type="number">0</variable>
-        <variable constant="0" name="HP" sid="963642290479931" static="0" type="number">2</variable>
         <variable constant="0" name="origemX" sid="596579234868771" static="0" type="number">430</variable>
         <variable constant="0" name="origemY" sid="498170236707438" static="0" type="number">222</variable>
         <event-block sid="105075975113660">
@@ -20,12 +21,45 @@
                     <param id="0" name="Variable">Distancia</param>
                     <param id="1" name="Value">1000000</param>
                 </action>
-                <action id="-9" name="Set value" sid="169429094532149" type="System">
-                    <param id="0" name="Variable">HP</param>
-                    <param id="1" name="Value">2</param>
-                </action>
                 <action id="0" name="Set text" sid="883248831713065" type="Distancia">
                     <param id="0" name="Text">Distancia</param>
+                </action>
+                <action id="-9" name="Set value" sid="972273120569690" type="System">
+                    <param id="0" name="Variable">gameover</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="467540595687413" type="System">
+                    <param id="0" name="Variable">start</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="428366126401043" type="System">
+                    <param id="0" name="Variable">song</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="313623453255889">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="480720047055967" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="980945598656558" type="System">
+                    <param id="0" name="Variable">start</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="677441511606965" type="System">
+                    <param id="0" name="Variable">gameover</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="354101697969210" type="System">
+                    <param id="0" name="Variable">start</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="119072650641780" type="PressSpace">
+                    <param id="0" name="Visibility">0</param>
                 </action>
             </actions>
         </event-block>
@@ -41,10 +75,10 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Spawn another object" sid="194884934722358" type="Rua">
+                <action id="0" name="Spawn another object" sid="740011390787072" type="Rua">
                     <param id="0" name="Object">Obstaculo</param>
                     <param id="1" name="Layer">0</param>
-                    <param id="2" name="Image point">1</param>
+                    <param id="2" name="Image point">0</param>
                 </action>
                 <action id="-10" name="Set value" sid="132455296691676" type="Obstaculo">
                     <param id="0" name="Instance variable">AnguloMovInicial</param>
@@ -72,10 +106,10 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Spawn another object" sid="697503481143089" type="Rua">
+                <action id="0" name="Spawn another object" sid="751605605171210" type="Rua">
                     <param id="0" name="Object">Obstaculo</param>
                     <param id="1" name="Layer">0</param>
-                    <param id="2" name="Image point">1</param>
+                    <param id="2" name="Image point">0</param>
                 </action>
                 <action id="-10" name="Set value" sid="358100220660123" type="Obstaculo">
                     <param id="0" name="Instance variable">AnguloMovInicial</param>
@@ -149,6 +183,24 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="144177667836899">
+            <conditions>
+                <condition id="-19" name="Pick all" sid="740207806821424" type="System">
+                    <param id="0" name="Object">Sprite</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="9" name="Set scale" sid="496640167791929" type="Sprite">
+                    <param id="0" name="Scale">(((Sprite.Y - Player.Y) / (origemY - Player.Y)) * (escalaInicial - escalaFinal)) + escalaFinal</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="814538425339030" type="Sprite">
+                    <param id="0" name="Speed">velocidade / 2</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="159052917033499" type="Sprite">
+                    <param id="0" name="Angle">Obstaculo.AnguloMovInicial</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="752818175146004">
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="520000526552981" type="System">
@@ -179,6 +231,71 @@
                 <action id="-9" name="Set value" sid="473207630346121" type="System">
                     <param id="0" name="Variable">gameover</param>
                     <param id="1" name="Value">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="685926398705601" type="PressSpace">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="951578448580331">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="943770976109573" type="System">
+                    <param id="0" name="Variable">gameover</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="0" name="Stop" sid="675874917833780" type="Player" />
+            </actions>
+        </event-block>
+        <event-block sid="901957452733267">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="637604365529381" type="System">
+                    <param id="0" name="Variable">Distancia</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">200</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="407959410620083" type="System">
+                    <param id="0" name="Interval (seconds)">10</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="352909069358184" type="System">
+                    <param id="0" name="Variable">song</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="837495892165840" type="System">
+                    <param id="0" name="Variable">gameover</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="121895814231914" type="Rua">
+                    <param id="0" name="Object">Sprite</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="993282272842811">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="823543578029798" type="Player">
+                    <param id="0" name="Object">Sprite</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="226335781687592" type="System">
+                    <param id="0" name="Variable">song</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="290295819969249" type="Sprite" />
+                <action id="7" name="Play (by name)" sid="681638666023606" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">&quot;videoplayback.m4a&quot;</param>
+                    <param id="3" name="Loop">1</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
                 </action>
             </actions>
         </event-block>

@@ -32,6 +32,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Layout 2</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -95,16 +96,6 @@
         <object-type name="Restart" sid="592938349398710">
             <plugin id="Button" />
         </object-type>
-        <object-type name="Rua" sid="355656852960962">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="175565941199884" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <image-point name="Imagepoint 1" x="0.464" y="0.008" />
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="Limite" sid="919528952391616">
             <plugin id="Sprite" />
             <behaviors>
@@ -124,15 +115,15 @@
         <object-type name="Audio" sid="417168120624158">
             <plugin id="Audio" />
         </object-type>
-        <object-type name="Sprite2" sid="826665762278154">
+        <object-type name="KM" sid="826665762278154">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="203949862798281" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Usuario\Documents\Repositorios\The-Last-Sunset\Arquivos do Protótipo\KM.png" />
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite3" sid="486547492315705">
+        <object-type name="metros" sid="486547492315705">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="421575993940887" speed="5">
@@ -140,13 +131,61 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="BackgroundMenu" sid="738013808331766">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="124795685253184" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.500582" original-source="C:\Users\Usuario\Documents\Repositorios\The-Last-Sunset\Arquivos do Protótipo\Menu Inicial - Protótipo.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="StartMenu" sid="529594058041155">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="PressSpace" sid="958218531900029">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Rua" sid="667586575690016">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="259638193080540" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Background" sid="176672808688017">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="151813359261944" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Usuario\Documents\Repositorios\The-Last-Sunset\Arquivos do Protótipo\Background - Protótipo.jpg" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite" sid="841619229578064">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="812602967016322">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="797957990034488">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="549951812775143" speed="5">
+                    <frame duration="1" hotspotX="0.466667" hotspotY="0.65625" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>Layout 1.xml</layout>
+        <layout>Layout 2.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Event sheet 2.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="9" />
@@ -165,7 +204,9 @@
             </properties>
         </global-instance>
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="videoplayback.m4a" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">
