@@ -18,15 +18,18 @@ public class GeraInfinito : MonoBehaviour
 {
     public GameObject plane;
     public GameObject player;
+   
 
-    int planeSize = 10;
-    int halfTilesX = 5;
-    int halfTileZ = 5;
+   public int planeSize = 10;
+   public int halfTilesX = 10;
+   public int halfTileZ = 15;
 
 
     Vector3 startPos;
 
     Hashtable tiles = new Hashtable();
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,7 @@ public class GeraInfinito : MonoBehaviour
                                            0, 
                                           (z * planeSize + startPos.z));
                 GameObject t = (GameObject)Instantiate(plane, pos, Quaternion.identity);
+               
 
                 string tilename = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
                 t.name = tilename;
@@ -73,7 +77,7 @@ public class GeraInfinito : MonoBehaviour
             {
                 for (int z = -halfTileZ; z < halfTileZ; z++)
                 {
-                    Vector3 pos = new Vector3((x * planeSize + startPos.x),
+                    Vector3 pos = new Vector3(/*(x * planeSize + startPos.x) */0,
                                                0,
                                               (z * planeSize + startPos.z));
                     string tilename = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
